@@ -13,7 +13,7 @@ namespace HRCentral_api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class resourcerequestpost : ControllerBase
-    {
+    { //this is test
         [HttpPost]     
             
         public IActionResult Temp(ResourcerRquest_post obj)

@@ -33,4 +33,17 @@ namespace HRCentral_api.Model
         public string City { get; set; }
 
     }
+
+    public class AdminRoles
+    {
+        public int Emp_Id { get; set; }
+        public string EmailID { get; set; }
+        public string Role { get; set; }
+
+    }
+
+
+
+
+
 }

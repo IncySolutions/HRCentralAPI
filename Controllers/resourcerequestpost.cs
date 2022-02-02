@@ -66,7 +66,7 @@ namespace HRCentral_api.Controllers
         {
             try
             {
-                string query = "select * from test";
+                string query = "select * from AdminRoles";
                 using (SqlConnection con = new SqlConnection("server=incyhrcentral.database.windows.net;database=hrcentral_Dev; uid=hrcentral;pwd=AmishAditya@123"))
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
@@ -78,19 +78,17 @@ namespace HRCentral_api.Controllers
                             using (DataTable dt = new DataTable())
                             {
                                 dt.Load(dr);
-                                List<testDBData> lis = new List<testDBData>();
+                                List<AdminRoles> sendBackList = new List<AdminRoles>();
+                                AdminRoles obj = new AdminRoles();
                                 for (int i = 0; i < dt.Rows.Count; i++)
                                 {
-                                    testDBData obj = new testDBData();
-                                    Console.WriteLine("This is test");
-                                    obj.PersonID = dt.Rows[i]["PersonID"].ToString();
-                                    obj.FirstName = dt.Rows[i]["FirstName"].ToString();
-                                    obj.LastName = dt.Rows[i]["LastName"].ToString();
-                                    obj.Address = dt.Rows[i]["Address"].ToString();
-                                    obj.City = dt.Rows[i]["City"].ToString();
-                                    lis.Add(obj);
+                                    
+                                    obj.Emp_Id = Convert.ToInt32(dt.Rows[i]["Emp_Id"]);
+                                    obj.EmailID = dt.Rows[i]["EmailID"].ToString();
+                                    obj.Role = dt.Rows[i]["Role"].ToString();
+                                    sendBackList.Add(obj);
                                 }
-                                return Ok(lis);
+                                return Ok(sendBackList);
                             }
                         }
                         con.Close();

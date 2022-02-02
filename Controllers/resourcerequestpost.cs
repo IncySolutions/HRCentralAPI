@@ -14,8 +14,8 @@ namespace HRCentral_api.Controllers
     [ApiController]
     public class resourcerequestpost : ControllerBase
     {
-        [HttpPost]
-
+        [HttpPost]     
+            
         public IActionResult Temp(ResourcerRquest_post obj)
         {
             try

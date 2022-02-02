@@ -10,7 +10,7 @@ using System.Data;
 
 namespace HRCentral_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class resourcerequestpost : ControllerBase
     {
@@ -59,6 +59,61 @@ namespace HRCentral_api.Controllers
             //return obj.name;
             return Ok("Success");
         }
-      
+
+
+        [HttpGet]
+        public object getResourceRequestData()
+        {
+            try
+            {
+                string query = "select * from test";
+                using (SqlConnection con = new SqlConnection("server=incyhrcentral.database.windows.net;database=hrcentral_Dev; uid=hrcentral;pwd=AmishAditya@123"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        Console.WriteLine("I am from inside");
+                        con.Open();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            using (DataTable dt = new DataTable())
+                            {
+                                dt.Load(dr);
+                                List<testDBData> lis = new List<testDBData>();
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    testDBData obj = new testDBData();
+                                    Console.WriteLine("This is test");
+                                    obj.PersonID = dt.Rows[i]["PersonID"].ToString();
+                                    obj.FirstName = dt.Rows[i]["FirstName"].ToString();
+                                    obj.LastName = dt.Rows[i]["LastName"].ToString();
+                                    obj.Address = dt.Rows[i]["Address"].ToString();
+                                    obj.City = dt.Rows[i]["City"].ToString();
+                                    lis.Add(obj);
+                                }
+                                return Ok(lis);
+                            }
+                        }
+                        con.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    
     }
 }

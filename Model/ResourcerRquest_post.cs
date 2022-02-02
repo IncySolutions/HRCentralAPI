@@ -23,4 +23,14 @@ namespace HRCentral_api.Model
         public string Status { get; set; }
 
     }
+
+    public class testDBData
+    {
+        public string PersonID { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+
+    }
 }

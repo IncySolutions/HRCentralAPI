@@ -38,6 +38,9 @@ namespace HRCentral_api
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());
+           // app.UseCors(options => options.WithOrigins("").WithHeaders().WithMethods());//allowing specific
+
 
             app.UseEndpoints(endpoints =>
             {

@@ -7,10 +7,20 @@ namespace HRCentral_api.Model
 {
     public class ResourcerRquest_post
     {
-        public string name { get; set; }
-        public string uid { get; set; }
-        public string sample { get; set; }
-        public string temp { get; set; }
+        public string JobCode { get; set; }
+        public int EmpId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+        public string Designation { get; set; }
+        public string JobProfile { get; set; }
+        public string createdDate { get; set; }
+        public string ClosurePeriod { get; set; }
+        public string Experience { get; set; }
+        public string JobType { get; set; }
+        public string BudgetRange { get; set; }
+        public string JobDescription { get; set; }
+        public string Status { get; set; }
 
     }
 }

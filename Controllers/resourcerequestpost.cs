@@ -10,7 +10,7 @@ using System.Data;
 
 namespace HRCentral_api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class resourcerequestpost : ControllerBase
     {
@@ -59,6 +59,60 @@ namespace HRCentral_api.Controllers
             //return obj.name;
             return Ok("Success");
         }
-      
+
+
+        [HttpGet]
+        public object getAdminRole(AdminRoles obj12)
+        {
+            try
+            {
+                string query = "select * from AdminRoles where EmailID = ";
+                // string query = "select * from AdminRoles";
+                using (SqlConnection con = new SqlConnection("server=incyhrcentral.database.windows.net;database=hrcentral_Dev; uid=hrcentral;pwd=AmishAditya@123"))
+                {
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        Console.WriteLine("I am from inside");
+                        con.Open();
+                        using (SqlDataReader dr = cmd.ExecuteReader())
+                        {
+                            using (DataTable dt = new DataTable())
+                            {
+                                dt.Load(dr);
+                                List<AdminRoles> sendBackList = new List<AdminRoles>();
+                                AdminRoles obj = new AdminRoles();
+                                for (int i = 0; i < dt.Rows.Count; i++)
+                                {
+                                    
+                                    // obj.Emp_Id = Convert.ToInt32(dt.Rows[i]["Emp_Id"]);
+                                    obj.EmailID = dt.Rows[i]["EmailID"].ToString();
+                                    // obj.Role = dt.Rows[i]["Role"].ToString();
+                                    sendBackList.Add(obj);
+                                }
+                                return Ok(sendBackList);
+                            }
+                        }
+                        con.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return Ok(ex);
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    
     }
 }

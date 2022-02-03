@@ -62,11 +62,12 @@ namespace HRCentral_api.Controllers
 
 
         [HttpGet]
-        public object getResourceRequestData()
+        public object getAdminRole(AdminRoles obj12)
         {
             try
             {
-                string query = "select * from AdminRoles";
+                string query = "select * from AdminRoles where EmailID = ";
+                // string query = "select * from AdminRoles";
                 using (SqlConnection con = new SqlConnection("server=incyhrcentral.database.windows.net;database=hrcentral_Dev; uid=hrcentral;pwd=AmishAditya@123"))
                 {
                     using (SqlCommand cmd = new SqlCommand(query, con))
@@ -83,9 +84,9 @@ namespace HRCentral_api.Controllers
                                 for (int i = 0; i < dt.Rows.Count; i++)
                                 {
                                     
-                                    obj.Emp_Id = Convert.ToInt32(dt.Rows[i]["Emp_Id"]);
+                                    // obj.Emp_Id = Convert.ToInt32(dt.Rows[i]["Emp_Id"]);
                                     obj.EmailID = dt.Rows[i]["EmailID"].ToString();
-                                    obj.Role = dt.Rows[i]["Role"].ToString();
+                                    // obj.Role = dt.Rows[i]["Role"].ToString();
                                     sendBackList.Add(obj);
                                 }
                                 return Ok(sendBackList);

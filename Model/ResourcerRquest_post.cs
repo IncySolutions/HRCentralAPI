@@ -36,9 +36,9 @@ namespace HRCentral_api.Model
 
     public class AdminRoles
     {
-        public int Emp_Id { get; set; }
+        // public int Emp_Id { get; set; }
         public string EmailID { get; set; }
-        public string Role { get; set; }
+        // public string Role { get; set; }
 
     }
 

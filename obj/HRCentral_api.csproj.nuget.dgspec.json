@@ -43,7 +43,7 @@
           "dependencies": {
             "Microsoft.IdentityModel.Clients.ActiveDirectory": {
               "target": "Package",
-              "version": "[5.2.5, )"
+              "version": "[3.13.8, )"
             },
             "System.Configuration.ConfigurationManager": {
               "target": "Package",

@@ -41,3 +41,4 @@ C:\Users\91870\Desktop\Incy Solutions\HRCentral_api\obj\Debug\netcoreapp3.1\HRCe
 C:\Users\91870\Desktop\Incy Solutions\HRCentral_api\obj\Debug\netcoreapp3.1\HRCentral_api.pdb
 C:\Users\91870\Desktop\Incy Solutions\HRCentral_api\obj\Debug\netcoreapp3.1\HRCentral_api.genruntimeconfig.cache
 C:\Users\91870\Desktop\Incy Solutions\HRCentral_api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+C:\Users\91870\Desktop\Incy Solutions\HRCentral_api\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
